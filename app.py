@@ -24,7 +24,12 @@ DB_FILE = "trades.db"
 collector.init_db()
 
 # --- Streamlit UI Configuration ---
-st.set_page_config(page_title="Options Forward Tester", layout="wide")
+# With this:
+st.set_page_config(
+    page_title="Telegram Forward Tester",
+    page_icon="icon.png",  # Points to the uploaded icon file
+    layout="wide",
+)
 
 # --- Sidebar: Direct Telegram Fetch Control ---
 with st.sidebar:
