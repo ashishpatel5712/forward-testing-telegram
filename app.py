@@ -4,7 +4,8 @@ import numpy as np
 import pandas as pd
 import sqlite3
 import streamlit as st
-
+from pathlib import Path
+import streamlit as st
 import collector
 
 # Optional local config fallback
@@ -25,12 +26,13 @@ collector.init_db()
 
 # --- Streamlit UI Configuration ---
 # With this:
+    # Locate the icon relative to app.py
+ICON_PATH = Path(__file__).parent / "icon.png"
 st.set_page_config(
-    page_title="Telegram Forward Tester",
-    page_icon="icon.png",  # Points to the uploaded icon file
+    page_title="Forward Tester",
+    page_icon=str(ICON_PATH) if ICON_PATH.exists() else "⚡",
     layout="wide",
 )
-
 # --- Sidebar: Direct Telegram Fetch Control ---
 with st.sidebar:
     st.header("⚙️ Controls")
